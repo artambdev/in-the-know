@@ -9,9 +9,9 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="posts"
     )
-    #reply_to = models.ForeignKey(
-    #    this, on_delete=models.CASCADE, related_name="replies"
-    #)
+    reply_to = models.ForeignKey(
+        "self", on_delete=models.CASCADE, related_name="replies"
+    )
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
