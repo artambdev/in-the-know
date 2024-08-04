@@ -18,5 +18,8 @@ class Post(models.Model):
     hidden = models.BooleanField()
     ever_edited = False
 
+    def Meta(self):
+        ordering = ["-created_on"]
+
     def __str__(self):
         return f"{self.content[:50]}"
