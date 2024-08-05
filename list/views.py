@@ -6,4 +6,4 @@ from .models import Post
 # Create your views here.
 class MainPage(generic.ListView):
     queryset = Post.objects.all()
-    template_name = "main_page.html"
+    template_name = "list/main_page.html"
