@@ -21,5 +21,5 @@ class Post(models.Model):
     def Meta(self):
         ordering = ["-created_on"]
 
-    def __str__(self):
+    def get_excerpt(self):
         return f"{self.content[:50]}"

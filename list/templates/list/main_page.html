@@ -3,9 +3,19 @@
 {% block content %}
 
 <div>
-    <p>
-        Main content goes here!
-    </p>
+    <div class="container-fluid">
+        <div class="row">
+            {% for post in post_list %}
+            <div class="col-sm-3">
+                <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted">{{ post.author }}</p>
+                    <p class="card-text text-muted">{{ post.get_excerpt }}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}
