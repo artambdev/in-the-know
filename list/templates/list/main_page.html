@@ -13,6 +13,10 @@
                     <p class="card-text text-muted">{{ post.get_excerpt }}</p>
                 </a>
             </div>
+            {% if forloop.counter|divisibleby:2 %}
+        </div>
+        <div class="row">
+            {% endif %}
             {% endfor %}
         </div>
     </div>
