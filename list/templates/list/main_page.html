@@ -8,11 +8,13 @@
         <div class="row">
             <!-- Individual posts -->
             {% for post in post_list %}
-            <div class="col-sm-6">
-                <a href="{% url 'view_post' post.slug %}" class="post-link">
-                    <h2 class="card-title">{{ post.author }}</h2>
-                    <p class="card-text">{{ post.get_excerpt }}</p>
-                </a>
+            <div class = "col-sm-6 card">
+                <div class="card-body">
+                    <a href="{% url 'view_post' post.slug %}" class="post-link">
+                        <h2 class="card-title">{{ post.author }}</h2>
+                        <p class="card-text">{{ post.get_excerpt }}</p>
+                    </a>
+                </div>
             </div>
             <!-- End row and move on to a new one every second post -->
             {% if forloop.counter|divisibleby:2 %}
