@@ -7,3 +7,19 @@ from .models import Post
 class MainPage(generic.ListView):
     queryset = Post.objects.all()
     template_name = "list/main_page.html"
+
+
+def view_post(request, slug):
+    queryset = Post.objects.filter(hidden=False)
+    post = get_object_or_404(queryset, slug=slug)
+    replies = post.replies.all().order_by("created_on")
+    num_replies = post.replies.filter(hidden=False).count()
+
+    return render(
+        request,
+        "list/view_post.html",
+        {
+            "post": post,
+            "replies": replies,
+        },
+    )
