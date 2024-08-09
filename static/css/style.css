@@ -1,9 +1,22 @@
+body {
+    background-color: #102a4c;
+}
+
+p {
+    color: #e2f0ff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #e2f0ff;
+}
+
 .post-section {
     width: 60%;
     margin-left: 20%;
 }
 
 .card {
+    background-color: #44577d;
     margin: 0.5rem;
     min-height: 10rem;
 }
