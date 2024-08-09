@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<div>
+<div class="detailed-post card">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <p class="card-text">On {{ post.created }}</p>
+                <p class="card-text">On {{ post.created_on }}</p>
                 <h1 class="card-title">{{ post.author }}:</h2>
                 <p class="card-text">{{ post.content }}</p>
             </div>
