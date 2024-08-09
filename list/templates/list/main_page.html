@@ -11,8 +11,7 @@
             <div class="col-sm-6">
                 <a href="{% url 'post_detail' post.slug %}" class="post-link">
                     <h2 class="card-title">{{ post.author }}</h2>
-                    <p class="card-text ">{{ post.get_excerpt }}</p>
-                    <p class="card-text text-muted">{{ post.get_excerpt }}</p>
+                    <p class="card-text">{{ post.get_excerpt }}</p>
                 </a>
             </div>
             <!-- End row and move on to a new one every second post -->
