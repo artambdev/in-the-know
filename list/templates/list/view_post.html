@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 class="card-title">{{ post.author }}</h2>
+                <p class="card-text">{{ post.get_excerpt }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
