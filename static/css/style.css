@@ -1,26 +1,40 @@
+/* General styling */
+/* Make the body dark */
 body {
     background-color: #102a4c;
 }
 
+/* White text */
 p {
     color: #e2f0ff;
 }
 
+/* White text */
 h1, h2, h3, h4, h5, h6 {
     color: #e2f0ff;
 }
 
+/* Navbar styling */
+
+/* Add a gap between posts and the sides of the screen */
 .post-section {
     width: 60%;
     margin-left: 20%;
 }
 
+/* Cards have a lighter background, some space between each other */
 .card {
     background-color: #44577d;
     margin: 0.5rem;
     min-height: 10rem;
 }
 
+/* "Replying to" text is darkened */
+.replying-to {
+    color: #a5abbd;
+}
+
+/* Remove underline from clickable post text */
 .post-link {
     text-decoration: none;
 }

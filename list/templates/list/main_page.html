@@ -10,6 +10,13 @@
             {% for post in post_list %}
             <div class = "col-sm-6 col-md-5 card">
                 <div class="card-body">
+                    {% if post.reply_to %}
+                    <a href="{% url 'view_post' post.reply_to.slug %}">
+                        <p>
+                            Replying to {{post.reply_to.author}}
+                        </p>
+                    </a>
+                    {% endif %}
                     <a href="{% url 'view_post' post.slug %}" class="post-link">
                         <h2 class="card-title">{{ post.author }}</h2>
                         <p class="card-text">{{ post.get_excerpt }}</p>
