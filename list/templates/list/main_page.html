@@ -5,10 +5,10 @@
 <!-- Main page content begins here -->
 <div>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row post-section">
             <!-- Individual posts -->
             {% for post in post_list %}
-            <div class = "col-sm-6 card">
+            <div class = "col-sm-6 col-md-5 card">
                 <div class="card-body">
                     <a href="{% url 'view_post' post.slug %}" class="post-link">
                         <h2 class="card-title">{{ post.author }}</h2>
@@ -19,7 +19,7 @@
             <!-- End row and move on to a new one every second post -->
             {% if forloop.counter|divisibleby:2 %}
         </div>
-        <div class="row">
+        <div class="row post-section">
             {% endif %}
             {% endfor %}
         </div>

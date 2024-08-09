@@ -1,3 +1,13 @@
+.post-section {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.card {
+    margin: 0.5rem;
+    min-height: 10rem;
+}
+
 .post-link {
     text-decoration: none;
 }
