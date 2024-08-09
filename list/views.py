@@ -7,6 +7,7 @@ from .models import Post
 class MainPage(generic.ListView):
     queryset = Post.objects.all()
     template_name = "list/main_page.html"
+    paginate_by = 8
 
 
 def view_post(request, slug):

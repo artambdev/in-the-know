@@ -2,10 +2,12 @@
 
 {% block content %}
 
+<!-- Detailed view of clicked post -->
 <div class="detailed-post card">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div>
+                <!-- Post being replied to -->
                 {% if post.reply_to %}
                 <a href="{% url 'view_post' post.reply_to.slug %}">
                     <p>
@@ -13,12 +15,18 @@
                     </p>
                 </a>
                 {% endif %}
-                <h1 class="card-title">{{ post.author }} said:</h2>
-                <p class="card-text">{{ post.content }}</p>
+                <!-- Post author and content -->
+                <h2 class="card-title">{{ post.author }} said:</h2>
+                <p class="card-text post-content">{{ post.content }}</p>
                 <p class="card-text">Created at {{ post.created_on }}</p>
             </div>
         </div>
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        
+    </div>
+</div>
 {% endblock %}
