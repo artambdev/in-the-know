@@ -9,7 +9,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="posts"
     )
     reply_to = models.ForeignKey(
-        "self", on_delete=models.CASCADE, related_name="replies"
+        "self", on_delete=models.CASCADE, related_name="replies", default=None, blank=True
     )
     content = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -17,7 +17,9 @@ class Post(models.Model):
     hidden = models.BooleanField()
     ever_edited = False
 
-    slug = f"{author}-{created_on}-{content[:10]}"
+    def save(self, *args, **kwargs):
+        slug = f"{self.author}-{self.created_on}-{self.content[:10]}"
+        super().save(*args, **kwargs)
 
     def Meta(self):
         ordering = ["-created_on"]
