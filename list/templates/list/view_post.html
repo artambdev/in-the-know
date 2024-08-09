@@ -3,10 +3,11 @@
 {% block content %}
 
 <div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h2 class="card-title">{{ post.author }}</h2>
+                <p class="card-text">On {{ post.created }}</p>
+                <h1 class="card-title">{{ post.author }}:</h2>
                 <p class="card-text">{{ post.content }}</p>
             </div>
         </div>
