@@ -3,10 +3,10 @@
 {% block content %}
 
 <!-- Detailed view of clicked post -->
-<div class="detailed-post card">
-    <div class="container">
-        <div class="row">
-            <div>
+<div class="container">
+    <div class="row">
+        <div class="col-11 col-md-9 col-lg-8 card">
+            <div class="card-body">
                 <!-- Post being replied to -->
                 {% if post.reply_to %}
                 <a href="{% url 'view_post' post.reply_to.slug %}">
@@ -26,12 +26,17 @@
 
 <!-- Replies section -->
 <div class="container">
+    {% if replies_count >= 1 %}
+    <div class="row">
+        <h1>Replies ({{ replies_count }})</h1>
+    </div>
+    {% endif %}
     <div class="row">
         <div class="col-md-8 col-lg-6 mb-4 mt-3">
             {% for reply in replies %}
             <div class="card">
                 <div class="card-body">
-                    <a href="{% url 'view_post' post.slug %}" class="post-link">
+                    <a href="{% url 'view_post' reply.slug %}" class="post-link">
                         <h3 class="card-title">{{ reply.author }}:</h2>
                         <p class="card-text post-content">{{ reply.content }}</p>
                         <p class="card-text created-at">Replied at {{ post.created_on }}</p>
