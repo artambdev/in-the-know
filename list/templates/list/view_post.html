@@ -18,7 +18,7 @@
                 <!-- Post author and content -->
                 <h2 class="card-title">{{ post.author }} said:</h2>
                 <p class="card-text post-content">{{ post.content }}</p>
-                <p class="card-text">Created at {{ post.created_on }}</p>
+                <p class="card-text created-at">Created at {{ post.created_on }}</p>
             </div>
         </div>
     </div>
@@ -26,17 +26,20 @@
 
 <!-- Replies section -->
 <div class="container">
-    {% for reply in replies %}
-    <div class="row reply-row">
-        <div class = "card">
-            <div class="card-body">
-                <a href="{% url 'view_post' post.slug %}" class="post-link">
-                    <h3 class="card-title">{{ reply.author }}:</h2>
-                    <p class="card-text post-content">{{ reply.content }}</p>
-                </a>
+    <div class="row">
+        <div class="col-md-8 col-lg-6 mb-4 mt-3">
+            {% for reply in replies %}
+            <div class="card">
+                <div class="card-body">
+                    <a href="{% url 'view_post' post.slug %}" class="post-link">
+                        <h3 class="card-title">{{ reply.author }}:</h2>
+                        <p class="card-text post-content">{{ reply.content }}</p>
+                        <p class="card-text created-at">Replied at {{ post.created_on }}</p>
+                    </a>
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

@@ -34,6 +34,11 @@ h1, h2, h3, h4, h5, h6 {
     color: #a5abbd;
 }
 
+/* "Created at" text is darkened */
+.created-at {
+    color: #a5abbd;
+}
+
 /* Remove underline from clickable post text */
 .post-link {
     text-decoration: none;
@@ -48,12 +53,15 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 10px;
     position: relative;
     display: inline-block;
-    width: 50%;
+    width: 40%;
     margin-left: 25%;
     margin-right: 25%;
 }
 
 .reply-row {
+    position: relative;
+    display: inline-block;
     width: 40%;
-    margin-left:15%;
+    min-width: 100px;
+    margin-left:45%;
 }
