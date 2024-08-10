@@ -10,16 +10,18 @@
             <div class="card-body">
                 <!-- Post being replied to -->
                 {% if post.reply_to.reply_to %}
-                <a href="{% url 'view_post' post.reply_to.slug %}">
+                <a href="{% url 'view_post' post.reply_to.reply_to.slug %}">
                     <p>
                         In reply to {{post.reply_to.author}}
                     </p>
                 </a>
                 {% endif %}
                 <!-- Post author and content -->
-                <h2 class="card-title">{{ post.reply_to.author }} said:</h2>
-                <p class="card-text post-content">{{ post.reply_to.content }}</p>
-                <p class="card-text created-at">Created at {{ post.reply_to.created_on }}</p>
+                <a href="{% url 'view_post' post.reply_to.slug %}" class="post-link">
+                    <h2 class="card-title">{{ post.reply_to.author }} said:</h2>
+                    <p class="card-text post-content">{{ post.reply_to.content }}</p>
+                    <p class="card-text created-at">Created at {{ post.reply_to.created_on }}</p>
+                </a>
             </div>
         </div>
     </div>
