@@ -24,9 +24,19 @@
     </div>
 </div>
 
+<!-- Replies section -->
 <div class="container">
+    {% for reply in replies %}
     <div class="row">
-        
+        <div class = "card">
+            <div class="card-body">
+                <a href="{% url 'view_post' post.slug %}" class="post-link">
+                    <h3 class="card-title">{{ reply.author }}:</h2>
+                    <p class="card-text post-content">{{ reply.content }}</p>
+                </a>
+            </div>
+        </div>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}
