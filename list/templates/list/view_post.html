@@ -2,13 +2,14 @@
 
 {% block content %}
 
-<!-- Detailed view of clicked post -->
+{% if post.reply_to %}
+<!-- Detailed view of replied-to post -->
 <div class="container">
     <div class="row">
-        <div class="col-11 col-md-9 col-lg-8 card">
+        <div class="col-10 col-md-8 col-lg-7 card">
             <div class="card-body">
                 <!-- Post being replied to -->
-                {% if post.reply_to %}
+                {% if post.reply_to.reply_to %}
                 <a href="{% url 'view_post' post.reply_to.slug %}">
                     <p>
                         In reply to {{post.reply_to.author}}
@@ -16,6 +17,22 @@
                 </a>
                 {% endif %}
                 <!-- Post author and content -->
+                <h2 class="card-title">{{ post.reply_to.author }} said:</h2>
+                <p class="card-text post-content">{{ post.reply_to.content }}</p>
+                <p class="card-text created-at">Created at {{ post.reply_to.created_on }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Detailed view of clicked post -->
+<div class="container">
+    <div class="row">
+        <div class="col-11 col-md-9 col-lg-8 card">
+            <div class="card-body">
+                <!-- Post author and content -->
+                
                 <h2 class="card-title">{{ post.author }} said:</h2>
                 <p class="card-text post-content">{{ post.content }}</p>
                 <p class="card-text created-at">Created at {{ post.created_on }}</p>
