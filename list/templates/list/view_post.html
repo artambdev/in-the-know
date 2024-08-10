@@ -27,7 +27,7 @@
 <!-- Replies section -->
 <div class="container">
     {% for reply in replies %}
-    <div class="row">
+    <div class="row reply-row">
         <div class = "card">
             <div class="card-body">
                 <a href="{% url 'view_post' post.slug %}" class="post-link">
