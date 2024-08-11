@@ -31,6 +31,13 @@ def view_post(request, slug):
 
 
 def create_post(request):
+    if request.method == "POST":
+        post_form = PostForm(data=request.POST)
+        if post_form.is_valid():
+            new_post = post_form.save(commit=False)
+            new_post.author = request.user
+            new_post.save()
+
     post_form = PostForm()
 
     return render(
