@@ -38,6 +38,9 @@
                 <h2 class="card-title">{{ post.author }} said:</h2>
                 <p class="card-text post-content">{{ post.content }}</p>
                 <p class="card-text created-at">Created at {{ post.created_on }}</p>
+                {% if user.is_authenticated and post.author == user %}
+                <button class="btn btn-edit" slug="{{ post.slug }}">Edit post</button>
+                {% endif %}
             </div>
         </div>
     </div>

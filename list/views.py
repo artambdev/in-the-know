@@ -1,7 +1,8 @@
 import random
 import string
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.views import generic
 from .models import Post
 from .forms import PostForm
@@ -52,3 +53,16 @@ def create_post(request):
             "post_form": post_form,
         },
     )
+
+
+def edit_post(request, slug):
+    if request.method == "POST":
+        queryset = Post.objects.filter(hidden=False)
+        post = get_object_or_404(queryset, slug=slug)
+        post_form = PostForm(data=request.POST, instance=post)
+
+        if post_form.is_valid() and post.author == request.user:
+            post = post_form.save(commit=False)
+            post.save()
+
+    return HttpResponseRedirect(reverse('view_post', args=[slug]))
