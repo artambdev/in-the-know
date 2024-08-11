@@ -1,3 +1,5 @@
+import random
+import string
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views import generic
@@ -35,7 +37,10 @@ def create_post(request):
         post_form = PostForm(data=request.POST)
         if post_form.is_valid():
             new_post = post_form.save(commit=False)
+            slug_format = string.ascii_lowercase + string.digits + '-_'
+            new_post.slug = ''.join(random.choices(slug_format, k=15))
             new_post.author = request.user
+            new_post.hidden = False
             new_post.save()
 
     post_form = PostForm()
