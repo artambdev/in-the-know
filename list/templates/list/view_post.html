@@ -42,7 +42,9 @@
                 <a href="{% url 'edit_post' post.slug %}">
                     <button class="btn edit-button">Edit</button>
                 </a>
-                <button class="btn delete-button">Delete</button>
+                <a href="{% url 'delete_post' post.slug %}">
+                    <button class="btn delete-button">Delete</button>
+                </a>
                 {% endif %}
             </div>
         </div>
