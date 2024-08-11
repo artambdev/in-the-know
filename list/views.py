@@ -28,3 +28,15 @@ def view_post(request, slug):
             "replies_count": num_replies,
         },
     )
+
+
+def create_post(request):
+    post_form = PostForm()
+
+    return render(
+        request,
+        "list/create_post.html",
+        {
+            "post_form": post_form,
+        },
+    )
