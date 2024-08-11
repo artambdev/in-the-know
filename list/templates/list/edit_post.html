@@ -8,14 +8,14 @@
     <div class="row">
         <div class="col-11 col-md-9 col-lg-8 card">
             <div class="card-body">
-                <h2 class="card-title">Share your thoughts!</h2>
+                <h2 class="card-title">Changed your mind?</h2>
 
                 {% if user.is_authenticated %}
                 <form id="post-form" method="post">
                 {{ post_form | crispy }}
                 {% csrf_token %}
                 <button id="submitButton" type="submit"
-                    class="btn btn-signup btn-lg">Submit Post</button>
+                    class="btn btn-signup btn-lg">Confirm Edit</button>
                 </form>
                 {% else %}
                 <p>You need to be logged in first! You can do so at the top of the screen.</p>
