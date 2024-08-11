@@ -64,5 +64,15 @@ def edit_post(request, slug):
         if post_form.is_valid() and post.author == request.user:
             post = post_form.save(commit=False)
             post.save()
+    
+    queryset = Post.objects.all()
+    post = get_object_or_404(queryset, slug=slug)
+    post_form = PostForm(initial={"content": post.content})
 
-    return HttpResponseRedirect(reverse('view_post', args=[slug]))
+    return render(
+        request,
+        "list/edit_post.html",
+        {
+            "post_form": post_form,
+        },
+    )
