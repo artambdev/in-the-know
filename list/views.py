@@ -76,3 +76,13 @@ def edit_post(request, slug):
             "post_form": post_form,
         },
     )
+
+
+def delete_post(request, slug):
+    queryset = Post.objects.all()
+    post = get_object_or_404(queryset, slug=slug)
+
+    if post.author == request.user:
+        post.delete()
+
+    return HttpResponseRedirect(reverse('home'))

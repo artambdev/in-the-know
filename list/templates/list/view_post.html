@@ -40,8 +40,9 @@
                 <p class="card-text created-at">Created at {{ post.created_on }}</p>
                 {% if user.is_authenticated and post.author == user %}
                 <a href="{% url 'edit_post' post.slug %}">
-                    <p>Edit post</p>
+                    <button class="btn edit-button">Edit</button>
                 </a>
+                <button class="btn delete-button">Delete</button>
                 {% endif %}
             </div>
         </div>
