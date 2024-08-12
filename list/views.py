@@ -15,7 +15,10 @@ class MainPage(generic.ListView):
 
 
 def view_post(request, slug):
-    queryset = Post.objects.filter(hidden=False)
+    if request.user.is_superuser:
+        queryset = Post.objects.all()
+    else:
+        queryset = Post.objects.filter(hidden=False)
     post = get_object_or_404(queryset, slug=slug)
     replies = post.replies.all().order_by("created_on")
     num_replies = post.replies.filter(hidden=False).count()
@@ -89,10 +92,11 @@ def delete_post(request, slug):
 
 
 def hide_post(request, slug):
-    queryset = Post.objects.filter(hidden=False)
+    queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
 
     if request.user.is_superuser:
         post.hidden = True
+        post.save()
 
     return HttpResponseRedirect(reverse('view_post', args=[slug]))
