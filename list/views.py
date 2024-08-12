@@ -86,4 +86,13 @@ def delete_post(request, slug):
         post.delete()
 
     return HttpResponseRedirect(reverse('home'))
-    
+
+
+def hide_post(request, slug):
+    queryset = Post.objects.filter(hidden=False)
+    post = get_object_or_404(queryset, slug=slug)
+
+    if request.user.is_superuser:
+        post.hidden = True
+
+    return HttpResponseRedirect(reverse('view_post', args=[slug]))
