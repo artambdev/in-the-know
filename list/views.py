@@ -11,7 +11,7 @@ from .forms import PostForm
 class MainPage(generic.ListView):
     template_name = "list/main_page.html"
     paginate_by = 8
-    
+
     def get_queryset(self):
         if self.request.user.is_superuser:
             queryset = Post.objects.all()
@@ -103,7 +103,7 @@ def hide_post(request, slug):
     post = get_object_or_404(queryset, slug=slug)
 
     if request.user.is_superuser:
-        post.hidden = True
+        post.hidden = not post.hidden
         post.save()
 
     return HttpResponseRedirect(reverse('view_post', args=[slug]))
