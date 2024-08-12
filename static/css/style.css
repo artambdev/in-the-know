@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 .card {
     background-color: #fff7ed;
     margin: 0.5rem;
-    min-height: 8rem;
+    min-height: 4rem;
 }
 
 /* "Replying to" text is darkened */
