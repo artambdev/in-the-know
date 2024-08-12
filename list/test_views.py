@@ -79,6 +79,23 @@ class TestBlogViews(TestCase):
             response.content
         )
     
+    def test_successful_post_edit(self):
+        """
+        Test that a post can be successfully edited
+        """
+        self.client.login(
+            username="userName", password="passWord")
+        post_data = {
+            'content': 'This is a new test post!'
+        }
+        response = self.client.post(reverse(
+            'edit_post', args=["post-name"]), post_data, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(
+            b'This is a new test post!',
+            response.content
+        )
+    
     def test_successful_post_hiding(self):
         """
         Test that a post can be hidden
