@@ -1,9 +1,11 @@
-const deleteButtons = document.getElementsByClassName("btn-delete");
+const deleteModal = new bootstrap.Modal(document.getElementById("delete-modal"));
+const deleteButtons = document.getElementsByClassName("delete-button");
+const deleteConfirm = document.getElementById("delete-confirm");
 
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
-      let commentId = e.target.getAttribute("comment_id");
-      deleteConfirm.href = `delete_comment/${commentId}`;
+      let postSlug = e.target.getAttribute("post_slug");
+      deleteConfirm.href = `${postSlug}/delete/`;
       deleteModal.show();
     });
 }

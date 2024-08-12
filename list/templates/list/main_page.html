@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <!-- Main page content begins here -->
@@ -31,21 +33,19 @@
                         <h3 class="card-title">{{ post.author }}:</h2>
                         <p class="card-text post-content">{{ post.content }}</p>
                         <p class="card-text created-at">Posted on {{ post.created_on }}</p>
-                        {% if user.is_authenticated and user.is_superuser %}
-                        <a href="{% url 'delete_post' post.slug %}">
-                            <button class="btn delete-button">Delete</button>
-                        </a>
-                        {% endif %}
-                        {% if user.is_authenticated and user.is_superuser and not post.hidden %}
-                        <a href="{% url 'hide_post' post.slug %}">
-                            <button class="btn hide-button">Hide</button>
-                        </a>
-                        {% elif user.is_authenticated and user.is_superuser and post.hidden %}
-                        <a href="{% url 'hide_post' post.slug %}">
-                            <button class="btn hide-button">Unhide</button>
-                        </a>
-                        {% endif %}
                     </a>
+                    {% if user.is_authenticated and user.is_superuser %}
+                    <button class="btn delete-button" post_slug="{{ post.slug }}">Delete</button>
+                    {% endif %}
+                    {% if user.is_authenticated and user.is_superuser and not post.hidden %}
+                    <a href="{% url 'hide_post' post.slug %}">
+                        <button class="btn hide-button">Hide</button>
+                    </a>
+                    {% elif user.is_authenticated and user.is_superuser and post.hidden %}
+                    <a href="{% url 'hide_post' post.slug %}">
+                        <button class="btn hide-button">Unhide</button>
+                    </a>
+                    {% endif %}
                 </div>
             </div>
             <!-- End row and move on to a new one every second post -->
@@ -71,4 +71,32 @@
 </nav>
 {% endif %}
 
-{% endblock %}
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="delete-modal" tabindex="-1"
+  aria-labelledby="delete-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="delete-modal-label">Delete post?</h5>
+        <button type="button" class="btn-close"
+            data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Delete this post? This is permanent and cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+            data-dismiss="modal">Close</button>
+        <a id="delete-confirm" href="#" class="btn
+          btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block posts %}
+<script src="{% static 'js/posts.js' %}"></script>
+{% endblock posts %}
