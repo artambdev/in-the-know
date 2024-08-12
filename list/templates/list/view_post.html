@@ -77,7 +77,21 @@
                     <a href="{% url 'view_post' reply.slug %}" class="post-link">
                         <h3 class="card-title">{{ reply.author }}:</h2>
                         <p class="card-text post-content">{{ reply.content }}</p>
-                        <p class="card-text created-at">Replied at {{ post.created_on }}</p>
+                        <p class="card-text created-at">Replied at {{ reply.created_on }}</p>
+                        {% if user.is_authenticated and user.is_superuser %}
+                        <a href="{% url 'delete_post' reply.slug %}">
+                            <button class="btn delete-button">Delete</button>
+                        </a>
+                        {% endif %}
+                        {% if user.is_authenticated and user.is_superuser and not post.hidden %}
+                        <a href="{% url 'hide_post' reply.slug %}">
+                            <button class="btn hide-button">Hide</button>
+                        </a>
+                        {% elif user.is_authenticated and user.is_superuser and post.hidden %}
+                        <a href="{% url 'hide_post' reply.slug %}">
+                            <button class="btn hide-button">Unhide</button>
+                        </a>
+                        {% endif %}
                     </a>
                 </div>
             </div>
