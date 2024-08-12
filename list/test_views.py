@@ -30,6 +30,15 @@ class TestBlogViews(TestCase):
             'home'))
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Post content", response.content)
+    
+    def test_no_hidden_on_main_page(self):
+        """
+        Test that hidden posts do not appear on the main page
+        """
+        response = self.client.get(reverse(
+            'home'))
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(b"Hidden content" in response.content)
 
     def test_render_post_detail_page_with_reply_form(self):
         """
