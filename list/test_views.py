@@ -17,6 +17,20 @@ class TestBlogViews(TestCase):
                          hidden=False)
         self.post.save()
 
+        self.hidden = Post(author=self.user,
+                         slug="post-hidden", content="Hidden content",
+                         hidden=True)
+        self.hidden.save()
+    
+    def test_render_main_page(self):
+        """
+        Test that posts appear on the main page
+        """
+        response = self.client.get(reverse(
+            'home'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Post content", response.content)
+
     def test_render_post_detail_page_with_reply_form(self):
         """
         Test that a post can be viewed directly
