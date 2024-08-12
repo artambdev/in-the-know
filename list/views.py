@@ -50,6 +50,7 @@ def view_post(request, slug):
             "post": post,
             "replies": replies,
             "replies_count": num_replies,
+            "post_form": post_form,
         },
     )
 
