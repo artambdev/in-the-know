@@ -89,6 +89,7 @@ def edit_post(request, slug):
         if post_form.is_valid() and post.author == request.user:
             post = post_form.save(commit=False)
             post.save()
+            return HttpResponseRedirect(reverse('view_post', args=[post.slug]))
     
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
