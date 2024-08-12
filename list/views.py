@@ -9,13 +9,20 @@ from .forms import PostForm
 
 # Create your views here.
 class MainPage(generic.ListView):
-    queryset = Post.objects.all()
     template_name = "list/main_page.html"
     paginate_by = 8
+    
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            queryset = Post.objects.all()
+        else:
+            queryset = Post.objects.filter(hidden=False)
+
+        return queryset
 
 
 def view_post(request, slug):
-    if request.user.is_superuser:
+    if request.user.is_authenticated and not request.user.is_superuser:
         queryset = Post.objects.all()
     else:
         queryset = Post.objects.filter(hidden=False)
