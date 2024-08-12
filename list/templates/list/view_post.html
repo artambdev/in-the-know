@@ -68,6 +68,26 @@
     <div class="row">
         <h1>Replies ({{ replies_count }})</h1>
     </div>
+    <div class="row">
+        <div class="col-md-8 col-lg-6 mb-4 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Share your thoughts!</h2>
+
+                    {% if user.is_authenticated %}
+                    <form id="post-form" method="post">
+                    {{ post_form | crispy }}
+                    {% csrf_token %}
+                    <button id="submitButton" type="submit"
+                        class="btn btn-signup btn-lg">Submit Reply</button>
+                    </form>
+                    {% else %}
+                    <p>Log in to create a reply to this post!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
     {% endif %}
     <div class="row">
         <div class="col-md-8 col-lg-6 mb-4 mt-3">
