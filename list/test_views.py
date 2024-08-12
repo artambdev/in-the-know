@@ -39,6 +39,17 @@ class TestBlogViews(TestCase):
             'home'))
         self.assertEqual(response.status_code, 200)
         self.assertFalse(b"Hidden content" in response.content)
+    
+    def test_hidden_for_superusers_on_main_page(self):
+        """
+        Test that hidden posts do appear for superusers
+        """
+        self.client.login(
+            username="userName", password="passWord")
+        response = self.client.get(reverse(
+            'home'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Hidden content", response.content)
 
     def test_render_post_detail_page_with_reply_form(self):
         """
