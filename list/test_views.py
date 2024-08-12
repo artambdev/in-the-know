@@ -91,9 +91,11 @@ class TestBlogViews(TestCase):
         response = self.client.post(reverse(
             'edit_post', args=["post-name"]), post_data, follow=True)
         self.assertEqual(response.status_code, 200)
+        response2 = self.client.get(reverse(
+            'view_post', args=['post-name']))
         self.assertIn(
             b'This is a new test post!',
-            response.content
+            response2.content
         )
     
     def test_successful_post_hiding(self):
