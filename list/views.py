@@ -22,7 +22,7 @@ class MainPage(generic.ListView):
 
 
 def view_post(request, slug):
-    if request.user.is_authenticated and not request.user.is_superuser:
+    if request.user.is_authenticated and request.user.is_superuser:
         queryset = Post.objects.all()
     else:
         queryset = Post.objects.filter(hidden=False)
