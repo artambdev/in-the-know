@@ -1,21 +1,17 @@
 /* General styling */
 /* Make the body dark */
 body {
-    background-color: #102a4c;
+    background-color: #ffac6d;
 }
 
 /* White text */
 p {
-    color: #e2f0ff;
+    color: #402e32;
 }
 
 /* White text */
 h1, h2, h3, h4, h5, h6 {
-    color: #e2f0ff;
-}
-
-.dark-text {
-    color: #102a4c;
+    color: #402e32;
 }
 
 /* Navbar styling */
@@ -28,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Cards have a lighter background, some space between each other */
 .card {
-    background-color: #44577d;
+    background-color: #fff7ed;
     margin: 0.5rem;
     min-height: 8rem;
 }

@@ -4,10 +4,10 @@
 
 <!-- Main page content begins here -->
 <div>
-    <div class="container-fluid">
+    <div class="container">
         <!-- Create post option -->
-        <div class = "row">
-            <div class = "col-sm-6 col-md-4 card">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 offset-md-4 card">
                 <a href="{% url 'create_post' %}">
                     <h1>Share Your Thoughts</h1>
                     <p>Click here to create a new post!</p>
@@ -17,7 +17,7 @@
         <div class="row post-section">
             <!-- Individual posts -->
             {% for post in post_list %}
-            <div class = "col-sm-6 col-md-5 card">
+            <div class="col-sm-6 col-md-5 card">
                 <div class="card-body">
                     <!-- Replying-to text if post is a reply -->
                     {% if post.reply_to %}
