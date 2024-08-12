@@ -79,6 +79,21 @@ class TestBlogViews(TestCase):
             response.content
         )
     
+    def test_successful_post_hiding(self):
+        """
+        Test that a post can be hidden
+        And that non-superusers cannot see it
+        """
+        self.client.login(
+            username="userName", password="passWord")
+        response = self.client.post(reverse(
+            'hide_post', args=["post-name"]), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.client.logout()
+        response2 = self.client.get(reverse(
+            'view_post', args=['post-name']))
+        self.assertEqual(response2.status_code, 404)
+    
     def test_successful_post_deletion(self):
         """
         Test that a post can be deleted
