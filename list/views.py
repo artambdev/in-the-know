@@ -86,3 +86,4 @@ def delete_post(request, slug):
         post.delete()
 
     return HttpResponseRedirect(reverse('home'))
+    
