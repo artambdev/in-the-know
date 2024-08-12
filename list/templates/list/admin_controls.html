@@ -1,0 +1,23 @@
+{% block admin_controls %}
+
+{% if user.is_authenticated and post.author == user %}
+<a href="{% url 'edit_post' post.slug %}">
+    <button class="btn edit-button">Edit</button>
+</a>
+{% endif %}
+{% if user.is_authenticated and post.author == user or user.is_superuser %}
+<a href="{% url 'delete_post' post.slug %}">
+    <button class="btn delete-button">Delete</button>
+</a>
+{% endif %}
+{% if user.is_authenticated and user.is_superuser and not post.hidden %}
+<a href="{% url 'hide_post' post.slug %}">
+    <button class="btn hide-button">Hide</button>
+</a>
+{% elif user.is_authenticated and user.is_superuser and post.hidden %}
+<a href="{% url 'hide_post' post.slug %}">
+    <button class="btn hide-button">Unhide</button>
+</a>
+{% endif %}
+
+{% endblock %}
