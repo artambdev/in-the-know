@@ -40,6 +40,8 @@ def view_post(request, slug):
             new_post.author = request.user
             new_post.hidden = False
             new_post.save()
+            return HttpResponseRedirect(reverse('view_post', args=[new_post.slug]))
+            
 
     post_form = PostForm()
 
@@ -65,6 +67,7 @@ def create_post(request):
             new_post.author = request.user
             new_post.hidden = False
             new_post.save()
+            return HttpResponseRedirect(reverse('view_post', args=[new_post.slug]))
 
     post_form = PostForm()
 
