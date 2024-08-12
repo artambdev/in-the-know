@@ -14,9 +14,9 @@ class MainPage(generic.ListView):
 
     def get_queryset(self):
         if self.request.user.is_superuser:
-            queryset = Post.objects.all()
+            queryset = Post.objects.all().order_by("-created_on")
         else:
-            queryset = Post.objects.filter(hidden=False)
+            queryset = Post.objects.filter(hidden=False).order_by("-created_on")
 
         return queryset
 
