@@ -30,6 +30,7 @@
                     <a href="{% url 'view_post' post.slug %}" class="post-link">
                         <h3 class="card-title">{{ post.author }}:</h2>
                         <p class="card-text post-content">{{ post.content }}</p>
+                        <p class="card-text created-at">Posted on {{ post.created_on }}</p>
                         {% if user.is_authenticated and user.is_superuser %}
                         <a href="{% url 'delete_post' post.slug %}">
                             <button class="btn delete-button">Delete</button>
