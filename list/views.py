@@ -30,6 +30,17 @@ def view_post(request, slug):
     replies = post.replies.all().order_by("created_on")
     num_replies = post.replies.filter(hidden=False).count()
 
+    if request.method == "POST":
+        post_form = PostForm(data=request.POST)
+        if post_form.is_valid():
+            new_post = post_form.save(commit=False)
+            slug_format = string.ascii_lowercase + string.digits + '-_'
+            new_post.slug = ''.join(random.choices(slug_format, k=15))
+            new_post.reply_to = post
+            new_post.author = request.user
+            new_post.hidden = False
+            new_post.save()
+
     post_form = PostForm()
 
     return render(
