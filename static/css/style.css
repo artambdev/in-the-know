@@ -28,12 +28,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff7ed;
 }
 
-/* Add a gap between posts and the sides of the screen */
-.post-section {
-    width: 60%;
-    margin-left: 20%;
-}
-
 /* Cards have a lighter background, some space between each other */
 .card {
     background-color: #fff7ed;

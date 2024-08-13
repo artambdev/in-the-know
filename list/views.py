@@ -108,7 +108,7 @@ def delete_post(request, slug):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
 
-    if post.author == request.user:
+    if post.author == request.user or request.user.is_superuser:
         post.delete()
 
     return HttpResponseRedirect(reverse('home'))

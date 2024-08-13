@@ -67,7 +67,9 @@
 <div class="container">
     {% if replies_count >= 1 %}
     <div class="row">
-        <h1>Replies ({{ replies_count }})</h1>
+        <div class="col-10 col-md-4 card justify-content-center">
+            <h1>Replies ({{ replies_count }})</h1>
+        </div>
     </div>
     {% endif %}
     {% if user.is_authenticated and not post.author == user %}
@@ -110,9 +112,7 @@
                         <p class="card-text"><i class="fa-regular fa-comments"></i>  {{ reply.get_replies_string }}<p></p>
                         {% endif %}
                         {% if user.is_authenticated and user.is_superuser %}
-                        <a href="{% url 'delete_post' reply.slug %}" post_slug="{{ comment.id }}">
-                            <button class="btn delete-button">Delete</button>
-                        </a>
+                        <button class="btn delete-button" post_slug="{{ reply.slug }}">Delete</button>
                         {% endif %}
                         {% if user.is_authenticated and user.is_superuser and not post.hidden %}
                         <a href="{% url 'hide_post' reply.slug %}">
