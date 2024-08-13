@@ -22,5 +22,15 @@ class Post(models.Model):
     def get_excerpt(self):
         return f"{self.content[:50]}"
     
+    def get_num_replies(self):
+        return self.replies.filter(hidden=False).count()
+    
+    def get_replies_string(self):
+        num_replies = self.replies.filter(hidden=False).count()
+        reply_or_replies = "replies"
+        if num_replies == 1:
+            reply_or_replies = "reply"
+        return f'{num_replies} {reply_or_replies}'
+    
     def __str__(self):
         return f'"{self.content[:20]}..." | written by {self.author}'

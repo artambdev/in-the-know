@@ -15,21 +15,31 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+    <!-- Title -->
     <title>In The Know | Hear what's happening</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 </head>
 <body>
+    <!-- Navigation section -->
     <nav class="navbar navbar-light navbar-expand-sm bg-light">
+        <!-- Logo -->
         <a href="/" class="navbar-brand">
             In The Know</a>
 
+        <!-- Button to toggle navbar on small screens -->
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- This is a dropdown on small screens, on the navbar on larger ones -->
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">
                 <li class="active nav-item mr-2"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item mr-2"><a class="nav-link" href="/">About</a></li>
+                <li class="nav-item mr-2"><a class="nav-link" href="{% url 'create_post' %}">Create Post</a></li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Sign Out</a>
@@ -46,6 +56,7 @@
             </ul>
         </div>
 
+        <!-- Display user login status -->
         {% if user.is_authenticated %}
         <p class="dark-text text-end m-3">You are logged in as {{ user }}</p>
         {% else %}
@@ -53,15 +64,20 @@
         {% endif %}
     </nav>
 
+    <!-- Main content provided by template -->
     <main>
         {% block content %}
         <!-- Main content goes here -->
         {% endblock content %}
     </main>
 
-    <footer>
-
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 darkened-bg">
+        <p class="text-center">In The Know is brought to you by Arthur Ambalov</p>
     </footer>
+
+    <!-- FontAwesome script for icons -->
+    <script src="https://kit.fontawesome.com/1b7fb41147.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

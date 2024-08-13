@@ -4,17 +4,29 @@ body {
     background-color: #ffac6d;
 }
 
-/* White text */
+a {
+    text-decoration: none;
+}
+
+/* Dark-brown text */
 p {
     color: #402e32;
 }
 
-/* White text */
+/* Dark-brown text */
 h1, h2, h3, h4, h5, h6 {
     color: #402e32;
 }
 
-/* Navbar styling */
+/* Footer styling */
+
+.darkened-bg {
+    background-color: #402e32;
+}
+
+.darkened-bg p {
+    color: #fff7ed;
+}
 
 /* Add a gap between posts and the sides of the screen */
 .post-section {
