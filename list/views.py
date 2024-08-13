@@ -41,6 +41,10 @@ def view_post(request, slug):
             new_post.author = request.user
             new_post.hidden = False
             new_post.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Reply created successfully'
+            )
             return HttpResponseRedirect(reverse('view_post', args=[new_post.slug]))
             
 
@@ -68,6 +72,10 @@ def create_post(request):
             new_post.author = request.user
             new_post.hidden = False
             new_post.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Post successfully created'
+            )
             return HttpResponseRedirect(reverse('view_post', args=[new_post.slug]))
 
     post_form = PostForm()
@@ -90,6 +98,10 @@ def edit_post(request, slug):
         if post_form.is_valid() and post.author == request.user:
             post = post_form.save(commit=False)
             post.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Post successfully edited'
+            )
             return HttpResponseRedirect(reverse('view_post', args=[post.slug]))
     
     queryset = Post.objects.all()
@@ -111,6 +123,10 @@ def delete_post(request, slug):
 
     if post.author == request.user or request.user.is_superuser:
         post.delete()
+        messages.add_message(
+            request, messages.SUCCESS,
+            'Post successfully deleted'
+        )
 
     return HttpResponseRedirect(reverse('home'))
 
@@ -122,5 +138,12 @@ def hide_post(request, slug):
     if request.user.is_superuser:
         post.hidden = not post.hidden
         post.save()
+        message_string = "Post successfully hidden"
+        if not post.hidden:
+            message_string = "Post successfully unhidden"
+        messages.add_message(
+            request, messages.SUCCESS,
+            message_string
+        )   
 
     return HttpResponseRedirect(reverse('view_post', args=[slug]))
