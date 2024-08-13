@@ -2,6 +2,12 @@ from django.shortcuts import render
 from .forms import FeedbackForm
 
 def contact_page(request):
+    if request.method == "POST":
+        feedback_form = FeedbackForm(data=request.POST)
+
+        if feedback_form.is_valid():
+            feedback.save()
+
     feedback_form = FeedbackForm()
 
     return render(
