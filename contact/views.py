@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .forms import FeedbackForm
+
 
 def contact_page(request):
     if request.method == "POST":
