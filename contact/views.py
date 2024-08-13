@@ -13,6 +13,8 @@ def contact_page(request):
                 request, messages.SUCCESS,
                 'Your feedback has been sent!'
             )
+        else:
+            messages.add_message(request, messages.ERROR, 'There was an error in sending your feedback')
 
     feedback_form = FeedbackForm()
 

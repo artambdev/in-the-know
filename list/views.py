@@ -46,6 +46,8 @@ def view_post(request, slug):
                 'Reply created successfully'
             )
             return HttpResponseRedirect(reverse('view_post', args=[new_post.slug]))
+        else:
+            messages.add_message(request, messages.ERROR, 'There was an error creating your reply')
             
 
     post_form = PostForm()
@@ -77,6 +79,8 @@ def create_post(request):
                 'Post successfully created'
             )
             return HttpResponseRedirect(reverse('view_post', args=[new_post.slug]))
+        else:
+            messages.add_message(request, messages.ERROR, 'There was an error creating your post')
 
     post_form = PostForm()
 
@@ -103,6 +107,8 @@ def edit_post(request, slug):
                 'Post successfully edited'
             )
             return HttpResponseRedirect(reverse('view_post', args=[post.slug]))
+        else:
+            messages.add_message(request, messages.ERROR, 'There was an error editing your post')
     
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
@@ -127,6 +133,8 @@ def delete_post(request, slug):
             request, messages.SUCCESS,
             'Post successfully deleted'
         )
+    else:
+            messages.add_message(request, messages.ERROR, 'There was an error deleting this post')
 
     return HttpResponseRedirect(reverse('home'))
 
@@ -144,6 +152,8 @@ def hide_post(request, slug):
         messages.add_message(
             request, messages.SUCCESS,
             message_string
-        )   
+        )
+    else:
+        messages.add_message(request, messages.ERROR, 'There was an error in hiding or unhiding this post')
 
     return HttpResponseRedirect(reverse('view_post', args=[slug]))
