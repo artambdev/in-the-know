@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import FeedbackForm
 
-def about_me(request):
+def contact_page(request):
     feedback_form = FeedbackForm()
 
     return render(
