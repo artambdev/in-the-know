@@ -9,6 +9,10 @@ def contact_page(request):
 
         if feedback_form.is_valid():
             feedback.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Your feedback has been sent!'
+            )
 
     feedback_form = FeedbackForm()
 
