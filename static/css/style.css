@@ -1,29 +1,32 @@
 /* General styling */
-/* Make the body dark */
+/* Set site background color */
 body {
     background-color: #ffac6d;
 }
 
+/* Remove text decoration on links */
 a {
     text-decoration: none;
 }
 
-/* Dark-brown text */
+/* Dark-brown text for paragraphs */
 p {
     color: #402e32;
 }
 
-/* Dark-brown text */
+/* Dark-brown text for headings */
 h1, h2, h3, h4, h5, h6 {
     color: #402e32;
 }
 
 /* Footer styling */
 
+/* Brown background on footer */
 .darkened-bg {
     background-color: #402e32;
 }
 
+/* White footer text for contrast with brown */
 .darkened-bg p {
     color: #fff7ed;
 }
@@ -35,12 +38,12 @@ h1, h2, h3, h4, h5, h6 {
     min-height: 4rem;
 }
 
-/* "Replying to" text is darkened */
+/* "Replying to" text is muted */
 .replying-to {
     color: #a5abbd;
 }
 
-/* "Created at" text is darkened */
+/* "Created at" text is muted */
 .created-at {
     color: #a5abbd;
 }
@@ -50,28 +53,12 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
+/* Slightly move main text of post to the right */
 .post-content {
     padding-left: 1em;
 }
 
-.detailed-post {
-    padding-top: 10px;
-    margin-top: 10px;
-    position: relative;
-    display: inline-block;
-    width: 40%;
-    margin-left: 25%;
-    margin-right: 25%;
-}
-
-.reply-row {
-    position: relative;
-    display: inline-block;
-    width: 40%;
-    min-width: 100px;
-    margin-left:45%;
-}
-
+/* Off-white background for alert popups */
 .popup {
     background-color: #fff7ed;
 }
