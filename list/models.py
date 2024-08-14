@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Post(models.Model):
+    """
+    Class to define the post model
+    """
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="posts"
     )
@@ -17,15 +20,22 @@ class Post(models.Model):
     ever_edited = False
 
     def Meta(self):
+        """
+        Show the newest posts first in admin screen
+        """
         ordering = ["-created_on"]
-
-    def get_excerpt(self):
-        return f"{self.content[:50]}"
     
     def get_num_replies(self):
+        """
+        Returns the number of non-hidden replies on a post
+        """
         return self.replies.filter(hidden=False).count()
     
     def get_replies_string(self):
+        """
+        Returns a string describing the number of replies
+        the post has
+        """
         num_replies = self.replies.filter(hidden=False).count()
         reply_or_replies = "replies"
         if num_replies == 1:

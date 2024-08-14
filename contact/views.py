@@ -4,6 +4,10 @@ from .forms import FeedbackForm
 
 
 def contact_page(request):
+    """
+    View function to handle rendering of contact page
+    and the submission of the feedback form
+    """
     if request.method == "POST":
         feedback_form = FeedbackForm(data=request.POST)
 

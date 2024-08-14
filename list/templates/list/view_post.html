@@ -46,9 +46,11 @@
                     <button class="btn edit-button">Edit</button>
                 </a>
                 {% endif %}
+                <!-- Delete button for poster or admins -->
                 {% if user.is_authenticated and post.author == user or user.is_superuser %}
                 <button class="btn delete-button" post_slug="{{ post.slug }}">Delete</button>
                 {% endif %}
+                <!-- Hide/unhide for admins -->
                 {% if user.is_authenticated and user.is_superuser and not post.hidden %}
                 <a href="{% url 'hide_post' post.slug %}">
                     <button class="btn hide-button">Hide</button>
@@ -65,6 +67,7 @@
 
 <!-- Replies section -->
 <div class="container">
+    <!-- Display number of replies -->
     {% if replies_count >= 1 %}
     <div class="row">
         <div class="col-10 col-md-4 card justify-content-center">
@@ -72,6 +75,7 @@
         </div>
     </div>
     {% endif %}
+    <!-- Reply form if the user is logged in and on another user's post -->
     {% if user.is_authenticated and not post.author == user %}
     <div class="row">
         <div class="col-md-8 col-lg-6 mb-4 mt-3">
@@ -88,6 +92,7 @@
             </div>
         </div>
     </div>
+    <!-- Suggestion to create an account to log in -->
     {% elif not user.is_authenticated %}
     <div class="row">
         <div class="col-md-auto mb-4 mt-3">
@@ -99,6 +104,7 @@
         </div>
     </div>
     {% endif %}
+    <!-- Show list of all replies -->
     <div class="row">
         <div class="col-md-8 col-lg-6 mb-4 mt-3">
             {% for reply in replies %}
@@ -111,6 +117,7 @@
                         {% if reply.get_num_replies >= 1 %}
                         <p class="card-text"><i class="fa-regular fa-comments"></i>  {{ reply.get_replies_string }}<p></p>
                         {% endif %}
+                        <!-- Buttons for admin functions -->
                         {% if user.is_authenticated and user.is_superuser %}
                         <button class="btn delete-button" post_slug="{{ reply.slug }}">Delete</button>
                         {% endif %}

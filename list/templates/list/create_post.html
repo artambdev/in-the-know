@@ -4,6 +4,7 @@
 
 {% block content %}
 
+<!-- Form to create a new post -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11 col-md-9 col-lg-8 card">
@@ -18,6 +19,7 @@
                     class="btn btn-signup btn-lg">Submit Post</button>
                 </form>
                 {% else %}
+                <!-- Prompt to sign up if not logged in -->
                 <p>You need to be logged in first! Follow the link below:</p>
                 <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
                         href="{% url 'account_signup' %}">Sign Up</a>
