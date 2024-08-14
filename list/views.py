@@ -8,8 +8,13 @@ from django.views import generic
 from .models import Post
 from .forms import PostForm
 
-# Create your views here.
+
 class MainPage(generic.ListView):
+    """
+    View function to render the main page
+    with the list of posts, visible depending
+    on superuser status
+    """
     template_name = "list/main_page.html"
     paginate_by = 8
 
@@ -23,6 +28,10 @@ class MainPage(generic.ListView):
 
 
 def view_post(request, slug):
+    """
+    View function to render post's detailed view
+    and handle the posting of replies to the post
+    """
     if request.user.is_authenticated and request.user.is_superuser:
         queryset = Post.objects.all()
     else:
@@ -65,6 +74,10 @@ def view_post(request, slug):
 
 
 def create_post(request):
+    """
+    View to render the post creation page
+    And handle post requests for new posts
+    """
     if request.method == "POST":
         post_form = PostForm(data=request.POST)
         if post_form.is_valid():
@@ -94,6 +107,10 @@ def create_post(request):
 
 
 def edit_post(request, slug):
+    """
+    View function to render the edit-post page
+    and handle requests to edit a post
+    """
     if request.method == "POST":
         queryset = Post.objects.filter(hidden=False)
         post = get_object_or_404(queryset, slug=slug)
@@ -124,6 +141,9 @@ def edit_post(request, slug):
 
 
 def delete_post(request, slug):
+    """
+    View function to handle requests to delete posts
+    """
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
 
@@ -134,12 +154,15 @@ def delete_post(request, slug):
             'Post successfully deleted'
         )
     else:
-            messages.add_message(request, messages.ERROR, 'There was an error deleting this post')
+        messages.add_message(request, messages.ERROR, 'There was an error deleting this post')
 
     return HttpResponseRedirect(reverse('home'))
 
 
 def hide_post(request, slug):
+    """
+    View function to handle requests to hide posts
+    """
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
 
