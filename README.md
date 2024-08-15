@@ -29,7 +29,7 @@
 
 ## Overview
 
-TODO
+In The Know is a social discussion board where users can start conversations and reply to each other in branching chains of posts.
 
 ## User Stories
 The website is designed for two possible users and X user stories:
@@ -55,7 +55,11 @@ The website has X pages and X features across them.
 ### Pages
 The X pages are:
 
-
+- The homepage, where the user is presented with a list of all the website's posts stacked two-by-two and paginated every 8 posts.
+- The detailed post view, where users can see a post in detail, the post it's replying to, all of its replies, and can create a reply
+- The post creation page where users can write a new post to start a new discussion
+- The post editing page where users can rewrite one of their existing posts to make changes
+- The Contact page where users can privately submit feedback to the admins
 
 ## Validation
 
@@ -132,6 +136,12 @@ Technology used:
 - Wireframing: Balsamiq
 - Validation: W3C HTML Validator, W3C CSS Validator, JSHints Code Quality Tool, WAVE Website Accessibility Evaluation Tool, PEP8, Google Chrome
 - Color palette design: <a href="https://mycolor.space">ColorSpace</a>
+
+### Third Party Libraries
+
+- Django AllAuth is used for its login/signup/logout functions alongside the base Django user features.
+- Django Crispyforms is installed to create the forms that users can use to create posts or submit feedback to the admins.
+- WhiteNoise is used to allow Django to serve static files such as CSS to deployment apps such as Heroku, necessary so that the site can be styled without having a CDN.
 
 Other:
 - Mo Shami for mentoring, guidance and feedback throughout the project.
