@@ -91,11 +91,25 @@ A few wireframes were made in advance of starting development to plan out the mo
 
 The wireframes are presented below:
 
-![Image of the main page's desktop wireframe](docs/wireframes/wireframe-home.png)
-![Image of the main page's mobile wireframe](docs/wireframes/wireframe-home-mobile.png)
-![Image of the post-creation page's wireframe](docs/wireframes/wireframe-create.png)
-![Image of the detailed post view's wireframe](docs/wireframes/wireframe-detailed.png)
-![Image of the contact page's wireframe](docs/wireframes/wireframe-contact.png)
+<details><summary>Main page's desktop wireframe</summary>
+<img src="docs/wireframes/wireframe-home.png">
+</details>
+
+<details><summary>Main page's mobile wireframe</summary>
+<img src="docs/wireframes/wireframe-home-mobile.png">
+</details>
+
+<details><summary>Create Post page's wireframe</summary>
+<img src="docs/wireframes/wireframe-create.png">
+</details>
+
+<details><summary>Detailed post view's wireframe</summary>
+<img src="docs/wireframes/wireframe-detailed.png">
+</details>
+
+<details><summary>Contact page's wireframe</summary>
+<img src="docs/wireframes/wireframe-contact.png">
+</details>
 
 ### Colour
 Using <a href="https://mycolor.space">ColorSpace</a> a colour scheme ranging from off-white to peach to brown was used to give the website a friendly and cozy scheme suitable for a social site.
@@ -141,6 +155,100 @@ The 5 pages are:
 - The post creation page where users can write a new post to start a new discussion
 - The post editing page where users can rewrite one of their existing posts to make changes
 - The Contact page where users can privately submit feedback to the admins
+
+### Navbar
+- A navigation bar at the top of the screen
+- Allows the user to access all the main pages of the website
+- Shows the user's logged-in status
+- Sign-in/sign-up/sign-out appear according to logged-in status
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-nav.png">
+</details>
+
+### Create Post Button
+- A large prompt on the main page
+- Clicking brings the user to the "create a post" page
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-create-post.png">
+</details>
+
+### Post List
+- A list of all posts on the front page
+- Posts are shown side-by-side on larger screens, one-by-one on mobile
+- Posts can be clicked on to go to their detailed view page
+- Admin users have admin functions visible on posts
+- The post's creation date and replied-to post are also shown
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-post-list.png">
+</details>
+
+### Pagination
+- Posts are shown 8 at a time
+- Pagination options show at the bottom of the list to go to the next or previous batch
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-pagination.png">
+</details>
+
+### Detailed View
+- Clicking on a post shows it in greater detail
+- Users have options to edit or delete their own post from here
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-detailed-view.png">
+</details>
+
+### Admin Functions
+- Admins (superusers) have the option to delete or hide users' posts
+- This allows them to moderate unsavory content
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-admin.png">
+</details>
+
+### Replied-To Post
+- In detailed view, the replied-to post is also shown
+- It can be clicked to go to its detailed view
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-replied-to.png">
+</details>
+
+### Reply Form
+- While logged in, a form is presented to make a reply
+- This creates a new post replying to the currently viewed one
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-reply.png">
+</details>
+
+### Reply List
+- A list of all the post's replies is shown underneath it
+- Clicking on any post in the list will bring the user to its detailed view
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-reply-list.png">
+</details>
+
+### Post Creation Form
+- A form on the post creation page
+- Allows the user to type text for a new post and submit it
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-post-creation-form.png">
+</details>
+
+### Feedback Form
+- A form on the contact page
+- Requires the entry of a name, email address and message
+- Posts the feedback model to the database for admin review
+
+<details><summary>Image</summary>
+<img src="docs/features/feature-feedback-form.png">
+</details>
 
 ## Validation
 
