@@ -91,17 +91,50 @@ A few wireframes were made in advance of starting development to plan out the mo
 
 The wireframes are presented below:
 
+![Image of the main page's desktop wireframe](docs/wireframes/wireframe-home.png)
+![Image of the main page's mobile wireframe](docs/wireframes/wireframe-home-mobile.png)
+![Image of the post-creation page's wireframe](docs/wireframes/wireframe-create.png)
+![Image of the detailed post view's wireframe](docs/wireframes/wireframe-detailed.png)
+![Image of the contact page's wireframe](docs/wireframes/wireframe-contact.png)
+
 ### Colour
 Using <a href="https://mycolor.space">ColorSpace</a> a colour scheme ranging from off-white to peach to brown was used to give the website a friendly and cozy scheme suitable for a social site.
 
 ### Font
 The Lato was chosen as a simple and easy-on-the-eyes sans-serif font. If it cannot be loaded, the browser's default sans-serif font is loaded in its place.
 
+### Database
+- The website's backend database is powered by the Django framework, with the PostgresSQL relational database system provided by Code Institute.
+
+The following models are used:
+
+#### Post
+
+The Post model is used to store individual posts. Posts can start a new chain or be a reply to another post.
+
+The post model contains:
+- The post author, a built-in Django User model
+- A slug ID generated randomly for each post
+- Optionally, a post that is being replied to
+- The text content of the psot (capped to 200 characters)
+- The time the post was created on
+- The time it was last updated on
+- Whether an admin has hidden the post or not
+
+#### Feedback
+
+The feedback model is used to store feedback anonymously provided to the admins. It provides the following data:
+- A name
+- An email address
+- A message
+- Whether an admin has approved it as "resolved" or not
+- The time the feedback was sent on
+
 ## Features
-The website has X pages and X features across them.
+The website has 5 main pages and X features across them.
 
 ### Pages
-The X pages are:
+The 5 pages are:
 
 - The homepage, where the user is presented with a list of all the website's posts stacked side-by-side and paginated every 8 posts. On mobile posts are shown in a one-post-wide list.
 - The detailed post view, where users can see a post in detail, the post it's replying to, all of its replies, and can create a reply
