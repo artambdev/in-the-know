@@ -32,9 +32,57 @@
 In The Know is a social discussion board where users can start conversations and reply to each other in branching chains of posts.
 
 ## User Stories
-The website is designed for two possible users and X user stories:
+The website is designed for two possible users and 8 user stories:
 
 ### User: Site User
+
+1. As a user I can view a paginated list of posts so that I can select a post to view or comment on.
+Acceptance criteria:
+- A list of posts is displayed on the site's main page
+- With their title and content displayed
+- In the case of many posts, they are moved onto new pages with a previous/next page option
+
+2. As a user I can create a post so that I can start discussions with others.
+Acceptance criteria:
+- Given a user is registered
+- On the main page, a "new post" button is presented
+- Clicking the button brings them to a new page to make a post
+
+3. As a user I can register an account so that I can join in on discussions.
+Acceptance criteria:
+- Given an email address, a user can register an account
+- Then they can use their details to log in
+- When logged in, they can create posts and reply to posts
+
+4. As a user I can edit and delete posts so that I can engage in the conversation.
+Acceptance criteria:
+- Given a user has posted
+- An "edit" button appears on their posts, allowing them to change them
+- A "delete" button appears on their posts, deleting it and its replies
+
+5. As a site admin I can hide or delete users' posts so that I can prevent hostile discussions.
+Acceptance criteria:
+- Given an admin is logged in
+- A "hide" option is presented on users' posts to make them unreadable
+- The delete option appears on other users' posts
+
+6. As a user I can view a post in more detail so that I can see its full text and replies.
+Acceptance criteria:
+- When a post is clicked on
+- A new page is entered with a detailed view
+- The post it replies to and its own replies are visible
+
+7. As a user I can reply to other users' posts so that I can be involved in a conversation.
+Acceptance criteria:
+- Given a user is logged in
+- A "reply" option is available on a post's detailed view
+- Which allows them to create a reply to the post
+
+8. As a site user I can submit a feedback form so that I can convey feedback to the site admins.
+Acceptance criteria:
+- A user can navigate to the "contact us" page
+- They can fill out a form with their details and a message
+- Which is then submitted to the database for the admins to review
 
 ### User: Site Admin
 
