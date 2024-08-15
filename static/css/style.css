@@ -53,6 +53,11 @@ h1, h2, h3, h4, h5, h6 {
     color: #a5abbd;
 }
 
+/* Reddish text for delete button on posts */
+.delete-button {
+    color: #ff3232;
+}
+
 /* Remove underline from clickable post text */
 .post-link {
     text-decoration: none;

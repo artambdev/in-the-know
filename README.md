@@ -92,10 +92,10 @@ A few wireframes were made in advance of starting development to plan out the mo
 The wireframes are presented below:
 
 ### Colour
-TODO
+Using <a href="https://mycolor.space">ColorSpace</a> a colour scheme ranging from off-white to peach to brown was used to give the website a friendly and cozy scheme suitable for a social site.
 
 ### Font
-TODO
+The Lato was chosen as a simple and easy-on-the-eyes sans-serif font. If it cannot be loaded, the browser's default sans-serif font is loaded in its place.
 
 ## Features
 The website has X pages and X features across them.
@@ -103,7 +103,7 @@ The website has X pages and X features across them.
 ### Pages
 The X pages are:
 
-- The homepage, where the user is presented with a list of all the website's posts stacked two-by-two and paginated every 8 posts.
+- The homepage, where the user is presented with a list of all the website's posts stacked side-by-side and paginated every 8 posts. On mobile posts are shown in a one-post-wide list.
 - The detailed post view, where users can see a post in detail, the post it's replying to, all of its replies, and can create a reply
 - The post creation page where users can write a new post to start a new discussion
 - The post editing page where users can rewrite one of their existing posts to make changes
