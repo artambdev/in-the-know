@@ -22,7 +22,7 @@
             <div class="col-sm-6 col-md-5 card">
                 <div class="card-body">
                     <!-- Replying-to text if post is a reply -->
-                    {% if post.reply_to and not post.reply_to.is_hidden %}
+                    {% if post.reply_to and not post.reply_to.hidden %}
                     <a href="{% url 'view_post' post.reply_to.slug %}">
                         <p>
                             <i class="fa-solid fa-reply"></i> In reply to {{post.reply_to.author}}

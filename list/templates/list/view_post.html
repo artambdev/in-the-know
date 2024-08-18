@@ -5,7 +5,7 @@
 
 {% block content %}
 
-{% if post.reply_to and not post.reply_to.is_hidden %}
+{% if post.reply_to and not post.reply_to.hidden %}
 <!-- Detailed view of replied-to post -->
 <div class="container">
     <div class="row">
