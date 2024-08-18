@@ -33,7 +33,7 @@
                         <h3 class="card-title">{{ post.author }}:</h3>
                         <p class="card-text post-content">{{ post.content }}</p>
                         <p class="card-text created-at">Posted on {{ post.created_on }}</p>
-                        <p class="card-text"><i class="fa-regular fa-comments"></i>  {{ post.get_replies_string }}<p>
+                        <p class="card-text"><i class="fa-regular fa-comments"></i>  {{ post.get_replies_string }}</p>
                     </a>
                     {% if user.is_authenticated and user.is_superuser %}
                     <button class="btn delete-button" post_slug="{{ post.slug }}">Delete</button>

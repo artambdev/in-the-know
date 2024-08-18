@@ -115,7 +115,7 @@
                         <p class="card-text post-content">{{ reply.content }}</p>
                         <p class="card-text created-at">Replied at {{ reply.created_on }}</p>
                         {% if reply.get_num_replies >= 1 %}
-                        <p class="card-text"><i class="fa-regular fa-comments"></i>  {{ reply.get_replies_string }}<p></p>
+                        <p class="card-text"><i class="fa-regular fa-comments"></i>  {{ reply.get_replies_string }}</p>
                         {% endif %}
                         <!-- Buttons for admin functions -->
                         {% if user.is_authenticated and user.is_superuser %}
