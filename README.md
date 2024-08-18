@@ -577,4 +577,5 @@ Technology used:
 - WhiteNoise is used to allow Django to serve static files such as CSS to deployment apps such as Heroku, necessary so that the site can be styled without having a CDN.
 
 Other:
+- Code Institute for inspiration on post list format and popup functionality
 - Mo Shami for mentoring, guidance and feedback throughout the project.
