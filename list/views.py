@@ -22,7 +22,9 @@ class MainPage(generic.ListView):
         if self.request.user.is_superuser:
             queryset = Post.objects.all().order_by("-created_on")
         else:
-            queryset = Post.objects.filter(hidden=False).order_by("-created_on")
+            queryset = Post.objects.filter(hidden=False).order_by(
+                "-created_on"
+            )
 
         return queryset
 
@@ -54,10 +56,15 @@ def view_post(request, slug):
                 request, messages.SUCCESS,
                 'Reply created successfully'
             )
-            return HttpResponseRedirect(reverse('view_post', args=[new_post.slug]))
+            return HttpResponseRedirect(
+                reverse('view_post', args=[new_post.slug])
+            )
         else:
-            messages.add_message(request, messages.ERROR, 'There was an error creating your reply')
-            
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'There was an error creating your reply'
+            )
 
     post_form = PostForm()
 
@@ -91,9 +98,15 @@ def create_post(request):
                 request, messages.SUCCESS,
                 'Post successfully created'
             )
-            return HttpResponseRedirect(reverse('view_post', args=[new_post.slug]))
+            return HttpResponseRedirect(
+                reverse('view_post', args=[new_post.slug])
+            )
         else:
-            messages.add_message(request, messages.ERROR, 'There was an error creating your post')
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'There was an error creating your post'
+            )
 
     post_form = PostForm()
 
@@ -125,8 +138,12 @@ def edit_post(request, slug):
             )
             return HttpResponseRedirect(reverse('view_post', args=[post.slug]))
         else:
-            messages.add_message(request, messages.ERROR, 'There was an error editing your post')
-    
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'There was an error editing your post'
+            )
+
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
     post_form = PostForm(initial={"content": post.content})
@@ -154,7 +171,11 @@ def delete_post(request, slug):
             'Post successfully deleted'
         )
     else:
-        messages.add_message(request, messages.ERROR, 'There was an error deleting this post')
+        messages.add_message(
+            request,
+            messages.ERROR,
+            'There was an error deleting this post'
+        )
 
     return HttpResponseRedirect(reverse('home'))
 
@@ -177,6 +198,10 @@ def hide_post(request, slug):
             message_string
         )
     else:
-        messages.add_message(request, messages.ERROR, 'There was an error in hiding or unhiding this post')
+        messages.add_message(
+            request,
+            messages.ERROR,
+            'There was an error in hiding or unhiding this post'
+        )
 
     return HttpResponseRedirect(reverse('view_post', args=[slug]))

@@ -4,6 +4,7 @@ from django.test import TestCase
 from .forms import PostForm
 from .models import Post
 
+
 class TestListViews(TestCase):
 
     def setUp(self):
@@ -17,11 +18,14 @@ class TestListViews(TestCase):
                          hidden=False)
         self.post.save()
 
-        self.hidden = Post(author=self.user,
-                         slug="post-hidden", content="Hidden content",
-                         hidden=True)
+        self.hidden = Post(
+            author=self.user,
+            slug="post-hidden",
+            content="Hidden content",
+            hidden=True
+        )
         self.hidden.save()
-    
+
     def test_render_main_page(self):
         """
         Test that posts appear on the main page
@@ -30,7 +34,7 @@ class TestListViews(TestCase):
             'home'))
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Post content", response.content)
-    
+
     def test_no_hidden_on_main_page(self):
         """
         Test that hidden posts do not appear on the main page
@@ -39,7 +43,7 @@ class TestListViews(TestCase):
             'home'))
         self.assertEqual(response.status_code, 200)
         self.assertFalse(b"Hidden content" in response.content)
-    
+
     def test_hidden_for_superusers_on_main_page(self):
         """
         Test that hidden posts do appear for superusers
@@ -61,7 +65,7 @@ class TestListViews(TestCase):
         self.assertIn(b"Post content", response.content)
         self.assertIsInstance(
             response.context['post_form'], PostForm)
-    
+
     def test_successful_post_submission(self):
         """
         Test that a post can be successfully created
@@ -78,7 +82,7 @@ class TestListViews(TestCase):
             b'This is a test post!',
             response.content
         )
-    
+
     def test_successful_post_edit(self):
         """
         Test that a post can be successfully edited
@@ -97,7 +101,7 @@ class TestListViews(TestCase):
             b'This is a new test post!',
             response2.content
         )
-    
+
     def test_successful_post_hiding(self):
         """
         Test that a post can be hidden
@@ -112,7 +116,7 @@ class TestListViews(TestCase):
         response2 = self.client.get(reverse(
             'view_post', args=['post-name']))
         self.assertEqual(response2.status_code, 404)
-    
+
     def test_successful_post_deletion(self):
         """
         Test that a post can be deleted

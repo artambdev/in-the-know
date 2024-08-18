@@ -11,7 +11,11 @@ class Post(models.Model):
     )
     slug = models.SlugField(max_length=200, default=None, null=True)
     reply_to = models.ForeignKey(
-        "self", on_delete=models.CASCADE, related_name="replies", null=True, blank=True
+        "self",
+        on_delete=models.CASCADE,
+        related_name="replies",
+        null=True,
+        blank=True
     )
     content = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -23,13 +27,13 @@ class Post(models.Model):
         Show the newest posts first in admin screen
         """
         ordering = ["-created_on"]
-    
+
     def get_num_replies(self):
         """
         Returns the number of non-hidden replies on a post
         """
         return self.replies.filter(hidden=False).count()
-    
+
     def get_replies_string(self):
         """
         Returns a string describing the number of replies
@@ -40,6 +44,6 @@ class Post(models.Model):
         if num_replies == 1:
             reply_or_replies = "reply"
         return f'{num_replies} {reply_or_replies}'
-    
+
     def __str__(self):
         return f'"{self.content[:20]}..." | written by {self.author}'

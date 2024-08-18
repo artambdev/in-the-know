@@ -15,4 +15,7 @@ class TestPostForm(TestCase):
         Test that form is invalid if has no content
         """
         post_form = PostForm({'content': ''})
-        self.assertFalse(post_form.is_valid(), msg='Post form is valid and should not be')
+        self.assertFalse(
+            post_form.is_valid(),
+            msg='Post form is valid and should not be'
+        )
