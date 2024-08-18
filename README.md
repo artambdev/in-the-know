@@ -384,7 +384,9 @@ Below is a list of user stories and the process by which they are fulfilled:
 | Pagination | On the homepage, scroll to the bottom of the page | Find an option to change pages | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories/story-1.png">
+<img src="docs/testing/manual/testing-manual-story-1a.png">
+<img src="docs/testing/manual/testing-manual-story-1b.png">
+<img src="docs/testing/manual/testing-manual-story-1c.png">
 </details>
 
 2. As a user I can create a post so that I can start discussions with others.
@@ -395,7 +397,8 @@ Below is a list of user stories and the process by which they are fulfilled:
 | Create Post form | On the create post page, fill in a message and click post | Go back to the homepage with a new post visible | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories/story-2.png">
+<img src="docs/testing/manual/testing-manual-story-2a.png">
+<img src="docs/testing/manual/testing-manual-story-2b.png">
 </details>
 
 3. As a user I can register an account so that I can join in on discussions.
@@ -405,7 +408,9 @@ Below is a list of user stories and the process by which they are fulfilled:
 | Navbar | Click the sign-up or sign-in option | Find a form to create an account or log into one | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/manual/story-3.png">
+<img src="docs/testing/manual/testing-manual-story-3a.png">
+<img src="docs/testing/manual/testing-manual-story-3b.png">
+<img src="docs/testing/manual/testing-manual-story-3c.png">
 </details>
 
 4. As a user I can edit and delete posts so that I can engage in the conversation.
@@ -416,7 +421,10 @@ Below is a list of user stories and the process by which they are fulfilled:
 | Delete button | On one of your posts, click "delete" and confirm | Be brought to the main page with the post deleted | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/testing/manual/testing-story-4a.png">
+<img src="docs/testing/manual/testing-manual-story-4a.png">
+<img src="docs/testing/manual/testing-manual-story-4b.png">
+<img src="docs/testing/manual/testing-manual-story-4c.png">
+<img src="docs/testing/manual/testing-manual-story-4d.png">
 </details>
 
 5. As a site admin I can hide or delete users' posts so that I can prevent hostile discussions.
@@ -427,7 +435,10 @@ Below is a list of user stories and the process by which they are fulfilled:
 | Delete button | As a superuser, press "delete" on a user's post | The post is deleted | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/validation/user-stories/story-5.png">
+<img src="docs/testing/manual/testing-manual-story-5a.png">
+<img src="docs/testing/manual/testing-manual-story-5b.png">
+<img src="docs/testing/manual/testing-manual-story-5c.png">
+<img src="docs/testing/manual/testing-manual-story-5d.png">
 </details>
 
 6. As a user I can view a post in more detail so that I can see its full text and replies.
@@ -437,7 +448,8 @@ Below is a list of user stories and the process by which they are fulfilled:
 | Detailed post view | Click on a post anywhere on the site | Be brought to the post's detailed view with its replies | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/validation/user-stories/story-6.png">
+<img src="docs/testing/manual/testing-manual-story-6a.png">
+<img src="docs/testing/manual/testing-manual-story-6b.png">
 </details>
 
 7. As a user I can reply to other users' posts so that I can be involved in a conversation.
@@ -447,7 +459,8 @@ Below is a list of user stories and the process by which they are fulfilled:
 | Reply form | View any post as a logged in user | See a form to create a reply to the post | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/validation/user-stories/story-4.png">
+<img src="docs/testing/manual/testing-manual-story-7a.png">
+<img src="docs/testing/manual/testing-manual-story-7b.png">
 </details>
 
 8. As a site user I can submit a feedback form so that I can convey feedback to the site admins.
@@ -458,7 +471,9 @@ Below is a list of user stories and the process by which they are fulfilled:
 | Feedback form | Fill out the form and click submit | The feedback is entered into the database for admins to view | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/validation/user-stories/story-8.png">
+<img src="docs/testing/manual/testing-manual-story-8a.png">
+<img src="docs/testing/manual/testing-manual-story-8b.png">
+<img src="docs/testing/manual/testing-manual-story-8c.png">
 </details>
 
 ### Automated Testing
