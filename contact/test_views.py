@@ -4,6 +4,7 @@ from django.test import TestCase
 from .forms import FeedbackForm
 from .models import Feedback
 
+
 class TestContactViews(TestCase):
 
     def setUp(self):
@@ -12,10 +13,13 @@ class TestContactViews(TestCase):
             password="passWord",
             email="sample@email.com"
         )
-        self.feedback = Feedback(name="Name",
-                         email="sample@email.com", message="Feedback content")
+        self.feedback = Feedback(
+            name="Name",
+            email="sample@email.com",
+            message="Feedback content"
+        )
         self.feedback.save()
-    
+
     def test_successful_feedback_submission(self):
         """
         Test that feedback can be successfully sent
