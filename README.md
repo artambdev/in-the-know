@@ -246,7 +246,7 @@ The 5 pages are:
 <img src="docs/features/feature-feedback-form.png">
 </details>
 
-## Validation
+## Validation & Testing
 
 ### HTML
 All pages on the site are validated with the W3C's Markup Validation Service and show no errors or warnings. See each page below:
@@ -375,6 +375,91 @@ Each page was tested on Mozilla Firefox and Google Chrome's developer tools for 
 
 ### User Stories
 Below is a list of user stories and the process by which they are fulfilled:
+
+1. As a user I can view a paginated list of posts so that I can select a post to view or comment on.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Navbar | Navigate to the homepage via the navbar | Find a paginated list of posts | Works as expected |
+| Pagination | On the homepage, scroll to the bottom of the page | Find an option to change pages | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories/story-1.png">
+</details>
+
+2. As a user I can create a post so that I can start discussions with others.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Create Post button | Navigate to the homepage, click the Share Your Thoughts button | Go to the Create Post page | Works as expected |
+| Create Post form | On the create post page, fill in a message and click post | Go back to the homepage with a new post visible | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories/story-2.png">
+</details>
+
+3. As a user I can register an account so that I can join in on discussions.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Navbar | Click the sign-up or sign-in option | Find a form to create an account or log into one | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/manual/story-3.png">
+</details>
+
+4. As a user I can edit and delete posts so that I can engage in the conversation.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Edit button | On one of your posts, click "edit" | Be brought to a page to edit the post | Works as expected |
+| Delete button | On one of your posts, click "delete" and confirm | Be brought to the main page with the post deleted | Works as expected |
+
+<details><summary>Screenshots</summary>
+<img src="docs/testing/manual/testing-story-4a.png">
+</details>
+
+5. As a site admin I can hide or delete users' posts so that I can prevent hostile discussions.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Hide button | As a superuser, press "hide" on a user's post | Normal users can no longer see the post | Works as expected |
+| Delete button | As a superuser, press "delete" on a user's post | The post is deleted | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/validation/user-stories/story-5.png">
+</details>
+
+6. As a user I can view a post in more detail so that I can see its full text and replies.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Detailed post view | Click on a post anywhere on the site | Be brought to the post's detailed view with its replies | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/validation/user-stories/story-6.png">
+</details>
+
+7. As a user I can reply to other users' posts so that I can be involved in a conversation.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Reply form | View any post as a logged in user | See a form to create a reply to the post | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/validation/user-stories/story-4.png">
+</details>
+
+8. As a site user I can submit a feedback form so that I can convey feedback to the site admins.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Navbar | Click on the "contact us" button | Be brought to a page to submit feedback | Works as expected |
+| Feedback form | Fill out the form and click submit | The feedback is entered into the database for admins to view | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/validation/user-stories/story-8.png">
+</details>
 
 ### Automated Testing
 Automated tests were created to test the forms and views of both of the apps (urls are tested in the process of testing views). See images of the successful tests in the terminal below:
