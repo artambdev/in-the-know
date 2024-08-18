@@ -1,3 +1,5 @@
+/* global bootstrap */
+
 const deleteModal = new bootstrap.Modal(document.getElementById("delete-modal"));
 const deleteButtons = document.getElementsByClassName("delete-button");
 const deleteConfirm = document.getElementById("delete-confirm");
