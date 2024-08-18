@@ -32,9 +32,7 @@
 In The Know is a social discussion board where users can start conversations and reply to each other in branching chains of posts.
 
 ## User Stories
-The website is designed for two possible users and 8 user stories:
-
-### User: Site User
+The website is designed for 8 detailed user stories, which are detailed alongside their acceptance criteria:
 
 1. As a user I can view a paginated list of posts so that I can select a post to view or comment on.
 Acceptance criteria:
@@ -83,8 +81,6 @@ Acceptance criteria:
 - A user can navigate to the "contact us" page
 - They can fill out a form with their details and a message
 - Which is then submitted to the database for the admins to review
-
-### User: Site Admin
 
 ## Design
 A few wireframes were made in advance of starting development to plan out the most important features and the structure of code that would be required to accompany them.
@@ -254,24 +250,125 @@ The 5 pages are:
 
 ### HTML
 All pages on the site are validated with the W3C's Markup Validation Service and show no errors or warnings. See each page below:
+<details><summary>Homepage</summary>
+<img src="docs/validation/html/validation-html-home.png">
+</details>
+<details><summary>Detailed View</summary>
+<img src="docs/validation/html/validation-html-detailed.png">
+</details>
+<details><summary>Contact Page</summary>
+<img src="docs/validation/html/validation-html-contact.png">
+</details>
+<details><summary>Create Page</summary>
+<img src="docs/validation/html/validation-html-create.png">
+</details>
+<details><summary>Edit Page</summary>
+<img src="docs/validation/html/validation-html-edit.png">
+</details>
 
 ### CSS
 The CSS style used by the site was validated with the W3C's CSS Validation Service, and showed no errors. There is one warning for the external stylesheet of Google Fonts which cannot be checked. See below:
+<details><summary>Images</summary>
+<img src="docs/validation/css/validation-css-noerrors.png">
+<img src="docs/validation/css/validation-css-warning.png">
+</details>
 
 ### JavaScript
 The JavaScript code used for the post deletion modal was validated with the JSHint Code Quality Tool, showing no errors or warnings.
+<details><summary>Image</summary>
+<img src="docs/validation/validation-js.png">
+</details>
 
 ### Python
-<a href="https://pep8ci.herokuapp.com/">PEP8 Python Linter</a> was used to validate all three Python files and no errors are returned.
+<a href="https://pep8ci.herokuapp.com/">PEP8 Python Linter</a> was used to validate all edited python files in the contact and list apps.
+
+#### Contact App ####
+<details><summary>admin.py</summary>
+<img src="docs/validation/python/validation-python-contact-admin.png">
+</details>
+<details><summary>forms.py</summary>
+<img src="docs/validation/python/validation-python-contact-forms.png">
+</details>
+<details><summary>models.py</summary>
+<img src="docs/validation/python/validation-python-contact-models.png">
+</details>
+<details><summary>test_forms.py</summary>
+<img src="docs/validation/python/validation-python-contact-testforms.png">
+</details>
+<details><summary>test_views.py</summary>
+<img src="docs/validation/python/validation-python-contact-testviews.png">
+</details>
+<details><summary>urls.py</summary>
+<img src="docs/validation/python/validation-python-contact-urls.png">
+</details>
+<details><summary>views.py</summary>
+<img src="docs/validation/python/validation-python-contact-views.png">
+</details>
+
+#### List App ####
+<details><summary>admin.py</summary>
+<img src="docs/validation/python/validation-python-list-admin.png">
+</details>
+<details><summary>forms.py</summary>
+<img src="docs/validation/python/validation-python-list-forms.png">
+</details>
+<details><summary>models.py</summary>
+<img src="docs/validation/python/validation-python-list-models.png">
+</details>
+<details><summary>test_forms.py</summary>
+<img src="docs/validation/python/validation-python-list-testforms.png">
+</details>
+<details><summary>test_views.py</summary>
+<img src="docs/validation/python/validation-python-list-testviews.png">
+</details>
+<details><summary>urls.py</summary>
+<img src="docs/validation/python/validation-python-list-urls.png">
+</details>
+<details><summary>views.py</summary>
+<img src="docs/validation/python/validation-python-list-views.png">
+</details>
 
 ### Accessibility
 All pages on the site are checked with the WAVE Website Accessibility Evaluation Tool, and none show any errors. See each page below:
+<details><summary>Homepage</summary>
+<img src="docs/validation/wave/validation-wave-home.png">
+</details>
+<details><summary>Detailed View</summary>
+<img src="docs/validation/wave/validation-wave-detailed.png">
+</details>
+<details><summary>Contact Page</summary>
+<img src="docs/validation/wave/validation-wave-contact.png">
+</details>
+<details><summary>Create Page</summary>
+<img src="docs/validation/wave/validation-wave-create.png">
+</details>
+<details><summary>Edit Page</summary>
+<img src="docs/validation/wave/validation-wave-edit.png">
+</details>
 
 ### Performance
 Google Chrome's Lighthouse feature was used to check every page for performance issues, and each returned a high score in all categories. See each page's result below:
+<details><summary>Homepage</summary>
+<img src="docs/validation/lighthouse/validation-lighthouse-home.png">
+</details>
+<details><summary>Detailed View</summary>
+<img src="docs/validation/lighthouse/validation-lighthouse-detailed.png">
+</details>
+<details><summary>Contact Page</summary>
+<img src="docs/validation/lighthouse/validation-lighthouse-contact.png">
+</details>
+<details><summary>Create Page</summary>
+<img src="docs/validation/lighthouse/validation-lighthouse-create.png">
+</details>
+<details><summary>Edit Page</summary>
+<img src="docs/validation/lighthouse/validation-lighthouse-edit.png">
+</details>
 
 ### Browser Compatibility
 Each page has been tested to work on:
+- Mozilla Firefox
+- Google Chrome
+- Microsoft Edge
 
 ### Device Compatibility
 Each page was tested on Mozilla Firefox and Google Chrome's developer tools for responsive design. Testing was done on a desktop PC running Windows 11 and a Galaxy A50 phone.
@@ -280,6 +377,23 @@ Each page was tested on Mozilla Firefox and Google Chrome's developer tools for 
 Below is a list of user stories and the process by which they are fulfilled:
 
 ### Automated Testing
+Automated tests were created to test the forms and views of both of the apps (urls are tested in the process of testing views). See images of the successful tests in the terminal below:
+
+#### Contact App ####
+<details><summary>test_forms.py</summary>
+<img src="docs/testing/automated/testing-auto-contact-forms.png">
+</details>
+<details><summary>test_views.py</summary>
+<img src="docs/testing/automated/testing-auto-contact-views.png">
+</details>
+
+#### List App ####
+<details><summary>test_forms.py</summary>
+<img src="docs/testing/automated/testing-auto-list-forms.png">
+</details>
+<details><summary>test_views.py</summary>
+<img src="docs/testing/automated/testing-auto-list-views.png">
+</details>
 
 ## Bugs
 Notable bugs found during development:
