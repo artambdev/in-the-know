@@ -1,7 +1,7 @@
 # In The Know
 - developed by Arthur Ambalov
 
-[Link to live webpage](https://in-the-know-75c6776a17f4.herokuapp.com/)
+[Link to live webpage](https://artamb-in-the-know-7ed192eb6f42.herokuapp.com/)
 
 ## Table of Contents
 
